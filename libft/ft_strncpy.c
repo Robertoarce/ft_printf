@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.h                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 17:32:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/12 11:01:41 by titorium         ###   ########.fr       */
+/*   Created: 2020/07/20 11:37:17 by titorium          #+#    #+#             */
+/*   Updated: 2020/07/20 11:38:08 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "../../libft/libft.h"
-
-typedef struct flags
+char	*ft_strncpy(char *dst, char *src, int size)
 {
-	int		negative;
-	int		zero;
-	int		width;
-	int		precision;
-	int		star1;
-	int		point;
-	char	specifier;
+	int counter;
+	int start;
 
-} flags;
-
-int		ft_printf(const char *str, ...);
-
-
-#endif
+	if (size == -1)
+		size = ft_strlen(src);
+	counter = 0;
+	start = 0;
+	while (dst[start] != '\0')
+		start++;
+	while (size-- && src[counter] != '\0')
+	{
+		dst[start + counter] = src[counter];
+		counter++;
+	}
+	dst[start + counter] = '\0';
+	return (dst);
+}

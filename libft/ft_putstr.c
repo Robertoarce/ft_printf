@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 17:32:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/12 11:01:41 by titorium         ###   ########.fr       */
+/*   Created: 2020/07/24 19:00:38 by titorium          #+#    #+#             */
+/*   Updated: 2020/07/24 19:01:44 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "../../libft/libft.h"
-
-typedef struct flags
+void		ft_putstr(char *s)
 {
-	int		negative;
-	int		zero;
-	int		width;
-	int		precision;
-	int		star1;
-	int		point;
-	char	specifier;
+	int counter;
 
-} flags;
-
-int		ft_printf(const char *str, ...);
-
-
-#endif
+	counter = 0;
+	while (s && s[counter] != '\0')
+	{
+		ft_putchar(s[counter]);
+		counter++;
+	}
+}

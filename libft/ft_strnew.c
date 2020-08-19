@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.h                                            :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 17:32:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/12 11:01:41 by titorium         ###   ########.fr       */
+/*   Created: 2020/07/20 11:32:17 by titorium          #+#    #+#             */
+/*   Updated: 2020/07/20 11:33:04 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "../../libft/libft.h"
-
-typedef struct flags
+char	*ft_strnew(int size)
 {
-	int		negative;
-	int		zero;
-	int		width;
-	int		precision;
-	int		star1;
-	int		point;
-	char	specifier;
+	char	*ptr;
+	int		counter;
 
-} flags;
-
-int		ft_printf(const char *str, ...);
-
-
-#endif
+	counter = 0;
+	if (!(ptr = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	while (counter < size)
+	{
+		ptr[counter] = '\0';
+		counter++;
+	}
+	ptr[counter] = '\0';
+	return (ptr);
+}

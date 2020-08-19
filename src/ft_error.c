@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.h                                            :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/24 17:32:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/12 11:01:41 by titorium         ###   ########.fr       */
+/*   Created: 2020/08/13 15:57:32 by titorium          #+#    #+#             */
+/*   Updated: 2020/08/19 11:23:09 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "../../libft/libft.h"
-
-typedef struct flags
+int		ft_error_check(t_flags flag, const char *chain)
 {
-	int		negative;
-	int		zero;
-	int		width;
-	int		precision;
-	int		star1;
-	int		point;
-	char	specifier;
+	(void)flag;
+	if (chain[0] == '-' && chain[1] == '0')
+		return (1);
+	return (-1);
+}
 
-} flags;
-
-int		ft_printf(const char *str, ...);
-
-
-#endif

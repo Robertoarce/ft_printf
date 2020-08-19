@@ -6,16 +6,16 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 17:37:42 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/11 12:20:56 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/12 11:02:21 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_to_pointer.c"
-#include "../libft/ft_putnbr.c"
-#include "../libft/ft_uitoa.c"
-#include "../libft/ft_itoa.c"
-#include "../libft/ft_calloc.c"
-#include "../libft/ft_bzero.c"
+#include "../../libft/ft_putnbr.c"
+#include "../../libft/ft_uitoa.c"
+#include "../../libft/ft_itoa.c"
+#include "../../libft/ft_calloc.c"
+#include "../../libft/ft_bzero.c"
 #include "ft_to_mhexa.c"
 #include "ft_to_bighexa.c"
 
