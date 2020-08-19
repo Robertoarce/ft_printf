@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/19 13:22:24 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/19 17:38:16 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,46 +14,55 @@
 NAME		=	libftprintf.a
 
 LIBFT		=	./libft/libft.a
-INCLUDES	=	-I./includes
+INCLUDES	=	./includes
 
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -f
+CC			=	clang
+CFLAGS		=	-Wall -Wextra -Werror -fPIC
+AR			=	ar -rcs
 
-SRC		=	./src/ft_printf.c
-SRC			+=	./src/ft_outils.c
-SRC			+=	./src/ft_outils2.c
-SRC 		+=	./src/ft_conv_d.c
-SRC			+=	./src/ft_conv_c.c
-SRC	 		+=	./src/ft_conv_p.c
-SRC 		+=	./src/ft_conv_s.c
-SRC 		+=	./src/ft_conv_un.c
-SRC			+=	./src/ft_conv_x.c
-SRC			+=	./src/ft_conv_xx.c
-SRC			+=	./src/ft_error.c
-SRC			+=	./src/ft_flags.c
+SRC		=	ft_printf.c
+SRC			+=	ft_outils.c
+SRC			+=	ft_outils2.c
+SRC 		+=	ft_conv_d.c
+SRC			+=	ft_conv_c.c
+SRC	 		+=	ft_conv_p.c
+SRC 		+=	ft_conv_s.c
+SRC 		+=	ft_conv_un.c
+SRC			+=	ft_conv_x.c
+SRC			+=	ft_conv_xx.c
+SRC			+=	ft_error.c
+SRC			+=	ft_flags.c
 
-OBJS		=	${SRC:.c=.o}
+PATHSRC		= ./src
+
+
+vpath %.c $(PATHSRC)
+
+BUILDIR		= 	objs/
+
+OBJS		=	$(patsubst %.c,$(BUILDIR)%.o,$(SRC))
 
 all:	${NAME}
+	
 
-$(NAME):	$(OBJS)
-			cd libft && make bonus
+$(NAME):	$(BUILDIR)	$(OBJS) 
+	cd libft && make
+	cp ./libft/libft.a  .
+	$(AR) $@ $(OBJS) libft.a
 
-	cp ./libft/libft.a ./$(NAME)
-	ar -rcs $(NAME) $(OBJS)
+$(BUILDIR): 
+	mkdir $@
 
-.c.o:
-	${CC} ${CFLAGS} $(INCLUDES) -g -c $< -o ${<:.c=.o}
-	${CC} ${CFLAGS}  -g -c $< -o ${<:.c=.o}
+$(OBJS): $(BUILDIR)%.o:%.c
+	${CC} ${CFLAGS} -I $(INCLUDES) -g -c $< -o $@
 
 clean:
 	make clean -C ./libft
-	${RM} ${OBJS}
+	${RM} -rf ${BUILDIR}
 
 fclean: clean
 	make fclean -C ./libft
-	${RM} ${NAME}
+	${RM}  ${NAME}
 
 re:	fclean all
 

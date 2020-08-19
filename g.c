@@ -6,14 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:29:14 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 13:12:29 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/19 17:40:38 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "./libft/libft.h"
-#include "./includes/ft_printf.h"
-#include "./src/ft_printf.c"
+#include "ft_printf.h"
 
 
 int main()

@@ -6,11 +6,12 @@
 /*   By: rarce <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 17:16:50 by rarce             #+#    #+#             */
-/*   Updated: 2020/08/19 13:22:55 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/19 15:50:05 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+#include "../libft/libft.h"
 #include "../includes/ft_printf.h"
 
 static int	ft_putcharncount(char c, int *p_count)

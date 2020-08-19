@@ -6,11 +6,15 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:29:14 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 11:58:30 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/19 15:24:54 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
+#include "ft_printf.c"
+
 
 int main()
 {
