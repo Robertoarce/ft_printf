@@ -6,17 +6,17 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 13:36:51 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/19 19:34:43 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include "libft.h"
 
 typedef struct	s_flags
 {

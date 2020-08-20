@@ -6,12 +6,11 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 11:20:39 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/20 15:02:15 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_negative(int *negative, va_list lst, char *tab, int *word_len)
 {

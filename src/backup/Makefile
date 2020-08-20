@@ -6,22 +6,19 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/20 15:12:07 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/19 17:38:16 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 
 NAME		=	libftprintf.a
 
 LIBFT		=	./libft/libft.a
 INCLUDES	=	./includes
-LB_INCLUDES	=	./libft
 
+CC			=	clang
+CFLAGS		=	-Wall -Wextra -Werror -fPIC
 AR			=	ar -rcs
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -rf
 
 SRC		=	ft_printf.c
 SRC			+=	ft_outils.c
@@ -36,40 +33,39 @@ SRC			+=	ft_conv_xx.c
 SRC			+=	ft_error.c
 SRC			+=	ft_flags.c
 
-PATHSRC		=	./src
+PATHSRC		= ./src
+
 
 vpath %.c $(PATHSRC)
 
-BUILDIR		=	obsj/
+BUILDIR		= 	objs/
 
 OBJS		=	$(patsubst %.c,$(BUILDIR)%.o,$(SRC))
 
 all:	${NAME}
+	
 
-$(NAME):	${BUILDIR}	${OBJS} ${LIBFT}
+$(NAME):	$(BUILDIR)	$(OBJS) 
+	cd libft && make
+	cp ./libft/libft.a  .
 	$(AR) $@ $(OBJS) libft.a
 
-$(BUILDIR):
+$(BUILDIR): 
 	mkdir $@
 
 $(OBJS): $(BUILDIR)%.o:%.c
-	${CC} ${CFLAGS} -I ${INCLUDES} -I ${LB_INCLUDES}	-g -c	$< -o $@
-
-$(LIBFT):
-	cd libft && make
-	cp ./libft/libft.a .
+	${CC} ${CFLAGS} -I $(INCLUDES) -g -c $< -o $@
 
 clean:
 	make clean -C ./libft
-	${RM} -rf ${OBJS} ${BUILDIR}
+	${RM} -rf ${BUILDIR}
 
 fclean: clean
 	make fclean -C ./libft
-	${RM} ${NAME} ${BUILDIR}
+	${RM}  ${NAME}
 
 re:	fclean all
 
 .PHONY : all clean fclean re
-
 
 

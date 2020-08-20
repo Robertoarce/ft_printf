@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/07/20 11:40:59 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/20 15:09:35 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ SRCS += ft_strncpy.c
 SRCS += ft_calloc.c
 SRCS += ft_putchar_fd.c
 SRCS += ft_putstr_fd.c
+SRCS += ft_putstr.c
+SRCS += ft_uitoa.c
+SRCS += ft_putstrn.c
+SRCS += ft_putchar.c
 SRCS += ft_putendl_fd.c
 SRCS += ft_putnbr_fd.c
 SRCS += ft_isalpha.c
