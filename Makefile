@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/20 15:12:07 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/24 10:47:55 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ $(LIBFT):
 
 clean:
 	make clean -C ./libft
+	${RM} libft.a
 	${RM} -rf ${OBJS} ${BUILDIR}
 
 fclean: clean

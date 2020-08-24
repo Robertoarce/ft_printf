@@ -6,12 +6,11 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:26:02 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 11:22:13 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 14:00:58 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 char	ft_hexa2(int num)
 {
@@ -54,6 +53,7 @@ int		ft_neg3(va_list lst, int *negative, char *tab, int *word_len)
 		*negative = 1;
 		spaces = spaces * -1;
 	}
+	free(tab);
 	tab = ft_to_bhexa(spaces);
 	*word_len = ft_strlen(tab);
 	spaces = 0;
@@ -67,7 +67,7 @@ int		ft_xx_conv(t_flags flag, va_list lst, int negative, int zeros)
 	int			word_len;
 	int			counter;
 
-	tab = NULL;
+	tab = ft_strnew(1);
 	spaces = ft_neg3(lst, &negative, &*tab, &word_len);
 	if (flag.precision > word_len && flag.point == 1)
 		zeros = flag.precision - word_len;

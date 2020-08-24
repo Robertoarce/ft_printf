@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:29:14 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 19:42:53 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 14:47:24 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 
 int main()
 {
-	int i =9;
+
+/*
+	int i=5;
+
 	ft_printf("----------------------------------------------------------\n");
 	ft_printf("--- CHARS ---\n");
 	
@@ -27,7 +30,6 @@ int main()
 
 	ft_printf("----------------------------------------------------------\n");
 	ft_printf("--- STRING ---\n");
-
 	ft_printf("char=|%*.*s|\n",9,3,"this.");
 	   printf("char=|%*.*s|\n",9,3,"this.");
 	ft_printf("\n-----------------------------\n");
@@ -49,7 +51,7 @@ int main()
 	ft_printf("\n-----------------------------\n");
 	ft_printf("char=|%-*s|\n",7,NULL);
 	   printf("char=|%-*s|\n",7,NULL);
-	
+
 	ft_printf("----------------------------------------------------------\n");
 	ft_printf("--- POINTER  ---\n");
 	i = 5;	
@@ -57,6 +59,7 @@ int main()
 	ft_printf("ft_char=|%-*p|\n",20, &i);
 	printf("  print=|%-*p|\n",20,&i);
 	ft_printf("ft_char=|%-*p|\n",20, &i);
+	
 	
 	ft_printf("----------------------------------------------------------\n");
 	ft_printf("--- INTEGER  ---\n");
@@ -130,8 +133,14 @@ int main()
 	ft_printf("\n-----------------------------\n");
 	   printf("char=|%-*.*X|\n",61,13,-24984);
 	ft_printf("char=|%-*.*X|\n",61,13,-24984);
+*/
 
+	int a= 0;
 
+	
+	a=ft_printf("123456789");
 
+	ft_putstr("\n number = ");
+	ft_putnbr(a);
 	return(0);
 }

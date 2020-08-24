@@ -6,12 +6,11 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 11:23:53 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 15:14:01 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_flags_init(t_flags *flag)
 {
@@ -50,7 +49,7 @@ void	ft_get_flags(t_flags *flag, const char *chain, va_list lst)
 	}
 	else
 		flag->width = ft_atoi(ft_substr(chain, start, size));
-	ft_part2(flag, chain, lst);
+	ft_part2(&*flag, chain, lst);
 }
 
 void	ft_part2(t_flags *flag, const char *chain, va_list lst)

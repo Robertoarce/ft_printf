@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 12:54:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/08/19 19:15:15 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 10:44:44 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
 void			ft_putstrn(char *s, int size);
 void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);

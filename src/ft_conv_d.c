@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/20 15:02:15 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 13:57:57 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_negative(int *negative, va_list lst, char *tab, int *word_len)
 		*negative = 1;
 		spaces = spaces * -1;
 	}
+	free(tab);
 	tab = ft_itoa(spaces);
 	*word_len = ft_strlen(tab);
 	return (0);
@@ -34,8 +35,8 @@ int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 	int		word_len;
 	char	*tab;
 
-	tab = NULL;
-	spaces = ft_negative(&negative, lst, &*tab, &word_len);
+	tab = ft_strnew(1);
+	spaces = ft_negative(&negative, lst, &(*tab), &word_len);
 	if (flag.precision > word_len && flag.point == 1)
 		zeros = flag.precision - word_len;
 	if (flag.width > (word_len + zeros))

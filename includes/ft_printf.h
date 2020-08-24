@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 19:34:43 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 15:15:29 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int				ft_get_args(t_flags flag, va_list lst);
 
 int				ft_format(va_list lst, const char *chain, int *error,
 		int p_cnt);
-
-
 
 int				ft_isin(const char *tab, char c);
 int				ft_spec_pos(const char *tab);
