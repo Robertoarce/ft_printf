@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 11:53:21 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/20 15:01:29 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 20:03:34 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 int		ft_isin(const char *tab, char c)
 {

@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 17:44:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/20 15:28:16 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 20:02:35 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 int	ft_u_conv(t_flags flag, va_list lst)
 {

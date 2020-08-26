@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/20 15:27:46 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:12:08 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 char	ft_hexa(int num)
 {
@@ -30,9 +31,7 @@ char	*ft_to_pointer(unsigned long num, int base)
 	remainder = num;
 	while (remainder > 0 && counter++ > -1)
 		remainder = remainder / base;
-	if (!(ptr = (char *)malloc(sizeof(char) * (counter + 1 + 2))))
-		return ("error");
-	ptr[counter + 1 + 2] = '\0';
+	ptr = ft_strnew(counter + 1 + 2);
 	while (num > 0 && counter > -1)
 	{
 		remainder = num / base;

@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/24 15:14:01 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 15:08:02 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 void	ft_flags_init(t_flags *flag)
 {
@@ -48,15 +49,14 @@ void	ft_get_flags(t_flags *flag, const char *chain, va_list lst)
 		flag->width = va_arg(lst, int);
 	}
 	else
-		flag->width = ft_atoi(ft_substr(chain, start, size));
-	ft_part2(&*flag, chain, lst);
+		flag->width = ft_atoi2(ft_substr(chain, start, size));
+	ft_part2(&*flag, chain, lst, &number_word);
 }
 
-void	ft_part2(t_flags *flag, const char *chain, va_list lst)
+void	ft_part2(t_flags *flag, const char *chain, va_list lst, char **num_word)
 {
 	unsigned int	start;
 	size_t			size;
-	char			*number_word;
 
 	start = 0;
 	size = 0;
@@ -64,15 +64,17 @@ void	ft_part2(t_flags *flag, const char *chain, va_list lst)
 	{
 		start = ft_isin(chain, '.') + 1;
 		size = ft_spec_pos(chain) - start;
-		number_word = ft_substr(chain, start, size);
+		free(*num_word);
+		*num_word = ft_substr(chain, start, size);
 		if (chain[start] == '*')
 			flag->precision = va_arg(lst, int);
 		else
-			flag->precision = ft_atoi(number_word);
+			flag->precision = ft_atoi(*num_word);
 	}
 	flag->specifier = chain[ft_spec_pos(chain)];
 	if (ft_isin(chain, '.') >= 0)
 		flag->point = 1;
+	free(*num_word);
 }
 
 int		ft_get_args(t_flags flag, va_list lst)

@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:03:31 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/24 14:00:03 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 14:35:10 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 char	ft_hexa1(int num)
 {
@@ -30,9 +31,7 @@ char	*ft_to_mhexa(unsigned long num)
 	remainder = num;
 	while (remainder > 0 && counter++ > -1)
 		remainder = remainder / 16;
-	if (!(ptr = (char *)malloc(sizeof(char) * (counter + 1))))
-		return ("error");
-	ptr[counter + 1] = '\0';
+	ptr = ft_strnew(counter + 1);
 	while (num > 0 && counter > -1)
 	{
 		remainder = num / 16;
@@ -43,7 +42,7 @@ char	*ft_to_mhexa(unsigned long num)
 	return (ptr);
 }
 
-int		ft_neg2(va_list lst, int *negative, char *tab, int *word_len)
+int		ft_neg2(va_list lst, int *negative, char **tab, int *word_len)
 {
 	long long	spaces;
 
@@ -53,9 +52,11 @@ int		ft_neg2(va_list lst, int *negative, char *tab, int *word_len)
 		*negative = 1;
 		spaces = spaces * -1;
 	}
-	free(tab);
-	tab = ft_to_mhexa(spaces);
-	*word_len = ft_strlen(tab);
+	free(*tab);
+	*tab = ft_to_mhexa(spaces);
+	*word_len = 0;
+	if (*tab)
+		*word_len = ft_strlen(*tab);
 	spaces = 0;
 	return ((int)spaces);
 }
@@ -68,7 +69,7 @@ int		ft_x_conv(t_flags flag, va_list lst, int negative, int zeros)
 	int			counter;
 
 	tab = ft_strnew(1);
-	spaces = ft_neg2(lst, &negative, &*tab, &word_len);
+	spaces = ft_neg2(lst, &negative, &tab, &word_len);
 	if (flag.precision > word_len && flag.point == 1)
 		zeros = flag.precision - word_len;
 	if (flag.width > (word_len + zeros))

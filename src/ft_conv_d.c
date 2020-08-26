@@ -6,13 +6,14 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/24 13:57:57 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:14:39 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
-int	ft_negative(int *negative, va_list lst, char *tab, int *word_len)
+int	ft_negative(int *negative, va_list lst, char **tab, int *word_len)
 {
 	int spaces;
 
@@ -22,9 +23,11 @@ int	ft_negative(int *negative, va_list lst, char *tab, int *word_len)
 		*negative = 1;
 		spaces = spaces * -1;
 	}
-	free(tab);
-	tab = ft_itoa(spaces);
-	*word_len = ft_strlen(tab);
+	free(*tab);
+	*tab = ft_itoa(spaces);
+	*word_len = 0;
+	if (*tab)
+		*word_len = ft_strlen(*tab);
 	return (0);
 }
 
@@ -36,7 +39,7 @@ int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 	char	*tab;
 
 	tab = ft_strnew(1);
-	spaces = ft_negative(&negative, lst, &(*tab), &word_len);
+	spaces = ft_negative(&negative, lst, &tab, &word_len);
 	if (flag.precision > word_len && flag.point == 1)
 		zeros = flag.precision - word_len;
 	if (flag.width > (word_len + zeros))

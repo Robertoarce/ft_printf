@@ -6,17 +6,17 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 17:10:28 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/19 11:52:44 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 15:39:17 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "ft_printf.h"
 
 int	main()
 {
 	int a;
-	int *b;
-	long c;
+	int b;
 
 	
 
@@ -26,12 +26,18 @@ ft_printf("----------------------------------------------------------\n");
 	printf("-> %d\n", b);
 	a = printf("abcd %5c%3c", 'c', 'd');
 	printf("-> %d \n", a);
+ft_printf("\n");	
+	b = ft_printf("abcd %%%5c%3c", 'c', 'd');
+	printf("-> %d\n", b);
+	a = printf("abcd %%%5c%3c", 'c', 'd');
+	printf("-> %d \n", a);
 ft_printf("\n");
 	b = ft_printf("%*c", 5, 'H');
 	printf("-> %d\n", b);
 	a = printf("%*c", 5, 'H');
 	printf("-> %d \n", a);
 ft_printf("\n");
+/*
 	b = ft_printf("%*c%c-%c", -10, 'c', 'r', 't');
 	printf("-> %d\n", b);
 	a = printf("%*c%c-%c", -10, 'c', 'r', 't');
@@ -99,7 +105,9 @@ ft_printf("\n");
 	a = printf("%-020%");
 	printf("-> %d \n", a);
 ft_printf("\n");
-	b = ft_printf("a%%a", 25);
+*/
+/*
+b = ft_printf("a%%a", 25);
 	printf("-> %d\n", b);
 	a = printf("a%%a", 25);
 	printf("-> %d \n", a);
@@ -1258,7 +1266,6 @@ ft_printf("\n");
 
 	b = ft_printf("%-4.4%");
 	printf("-> %d\n", b);
-	printf("%%   ");
 	printf("-> 4 \n");
 ft_printf("\n");
 	b = ft_printf("%0*.%", 2);

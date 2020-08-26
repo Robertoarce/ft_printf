@@ -6,11 +6,12 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:53:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/20 15:01:38 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/24 20:03:27 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 int	ft_w(char *tab, int word_len, t_flags flag)
 {

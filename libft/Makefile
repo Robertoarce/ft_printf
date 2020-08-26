@@ -6,9 +6,10 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/24 10:42:26 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/26 15:06:01 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = libft.a
 CC = clang
@@ -16,6 +17,8 @@ AR = ar -rcs
 CFLAGS = -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+
+RM		=	rm -f
 
 SRCS = ft_memset.c
 SRCS += ft_bzero.c
@@ -47,6 +50,7 @@ SRCS += ft_toupper.c
 SRCS += ft_tolower.c
 SRCS += ft_strncmp.c
 SRCS += ft_atoi.c
+SRCS += ft_atoi2.c
 
 SRCS += ft_strlcpy.c
 SRCS += ft_strlcat.c
@@ -64,29 +68,23 @@ SRCS += ft_strmapi.c
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
 
-OBJS = $(SRCS:.c=.o)
 
-OBJSBONUS = $(BONUS:.c=.o)
-
-all: $(NAME)
+OBJS	=	${SRCS:.c=.o}
 
 .c.o:
-	$(CC) $(CFLAGS) -g -c $< -o $(<:.c=.o)
+	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME):	${OBJS}
+	ar rc ${NAME} ${OBJS}
 
-bonus:	$(OBJS) $(OBJSBONUS)
-	$(AR) $(NAME) $(OBJS) $(OBJSBONUS)
+all:	${NAME}
 
 clean:
-	$(RM) $(OBJS) $(OBJSBONUS)
-#	echo "Cleaning Objs"
+	${RM} ${OBJS}
 
 fclean:	clean
-	$(RM) $(NAME)
-#	echo "Cleaning Lib"
+	${RM} ${NAME}
 
-re:	fclean all
+re:		fclean all
 
-.PHONY:	clean fclean re bonus
+.PHONY : all clean fclean re

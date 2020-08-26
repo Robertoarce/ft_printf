@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 10:48:12 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/11 11:11:16 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:18:15 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char			*ft_uitoa(unsigned int n)
 	if ((number = ft_calloc(sizeof(char), nb_len + 1)) == NULL)
 		return (number);
 	start = 0;
-	number[nb_len + 1] = '\0';
-	number[nb_len] = '\0';
 	if (num < 0)
 	{
 		number[0] = '-';

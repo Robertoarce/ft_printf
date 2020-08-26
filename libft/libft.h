@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 12:54:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/08/24 10:44:44 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 15:04:19 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strncpy(char *dst, char *src, int size);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(char *str);
+int				ft_atoi2(char *str);
 char			*ft_uitoa(unsigned int n);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
