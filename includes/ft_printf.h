@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 14:54:21 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:29:12 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int				ft_n(int sign);
 int				ft_findc(const char *tab, char c);
 
 int				ft_c_conv(t_flags flag, va_list lst);
+int				ft_pp_conv();
 
 int				ft_negative(int *negative, va_list lst, char **tab,
 		int *word_len);

@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 15:08:02 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:56:54 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ int		ft_get_args(t_flags flag, va_list lst)
 		return (ft_x_conv(flag, lst, 0, 0));
 	if (flag.specifier == 'X')
 		return (ft_xx_conv(flag, lst, 0, 0));
+	if (flag.specifier == '%')
+		return (ft_pp_conv(flag, lst));
 	return (-1);
 }

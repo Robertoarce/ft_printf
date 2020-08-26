@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/24 20:00:53 by titorium         ###   ########.fr        #
+#    Updated: 2020/08/26 17:58:47 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC			+=	./src/ft_outils2.c
 SRC 		+=	./src/ft_conv_d.c
 SRC			+=	./src/ft_conv_c.c
 SRC	 		+=	./src/ft_conv_p.c
+SRC	 		+=	./src/ft_conv_pp.c
 SRC 		+=	./src/ft_conv_s.c
 SRC 		+=	./src/ft_conv_un.c
 SRC			+=	./src/ft_conv_x.c

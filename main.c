@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 17:10:28 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 15:39:17 by titorium         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:34:58 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1266,7 +1266,8 @@ ft_printf("\n");
 
 	b = ft_printf("%-4.4%");
 	printf("-> %d\n", b);
-	printf("-> 4 \n");
+	a = printf("%-4.4%");
+	printf("-> %d\n", a);
 ft_printf("\n");
 	b = ft_printf("%0*.%", 2);
 	printf("-> %d\n", b);
@@ -1304,6 +1305,11 @@ ft_printf("\n");
 	printf("-> %d \n", a);
 ft_printf("\n");
 
+	b = ft_printf("This is a normal chain with space and nl\n");
+	printf("-> %d\n", b);
+	a = ft_printf("This is a normal chain with space and nl\n");
+	printf("-> %d \n", a);
+ft_printf("\n");
 
 ft_printf("\n");
 
