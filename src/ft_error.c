@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:57:32 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/24 20:04:16 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/01 12:59:18 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int		ft_error_check(t_flags flag, const char *chain)
 {
 	(void)flag;
-	if (chain[0] == '-' && chain[1] == '0')
-		return (1);
+	(void)chain;
+//	if (chain[0] == '-' && chain[1] == '0')
+//		return (1);
 	return (-1);
 }

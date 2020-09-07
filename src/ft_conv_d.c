@@ -6,17 +6,63 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 17:14:39 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/07 15:50:38 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int	ft_negative(int *negative, va_list lst, char **tab, int *word_len)
+static size_t	ft_numsize2(long num)
 {
-	int spaces;
+	size_t	size;
+	long	n;
 
+	n = num;
+	size = 0;
+	if (n < 0 && n != -2147483648)
+	{
+		n = n * -1;
+		size++;
+	}
+	if (n == 0)
+		size++;
+	while (n != 0)
+	{
+		size++;
+		n = n / 10;
+	}
+	return (size);
+}
+
+static char		*ft_itoa2(int n)
+{
+	char	*number;
+	size_t	nb_len;
+	size_t	start;
+	long	num;
+
+	num = n;
+	nb_len = ft_numsize2(num);
+	number = "";
+	if ((number = ft_calloc(sizeof(char), nb_len + 1)) == NULL)
+		return (number);
+	start = 0;
+	if (num < 0)
+		num = num * -1;
+	while (nb_len-- > start)
+	{
+		number[nb_len] = (num % 10) + 48;
+		num = num / 10;
+	}
+	return (number);
+}
+
+int	ft_negative(int *negative, va_list lst, char **tab, int *word_len, int *c)
+{
+	long int spaces;
+	
+	*c = 0;
 	spaces = va_arg(lst, int);
 	if (spaces < 0)
 	{
@@ -24,11 +70,33 @@ int	ft_negative(int *negative, va_list lst, char **tab, int *word_len)
 		spaces = spaces * -1;
 	}
 	free(*tab);
-	*tab = ft_itoa(spaces);
+	*tab = ft_itoa2(spaces);
 	*word_len = 0;
 	if (*tab)
 		*word_len = ft_strlen(*tab);
-	return (0);
+	spaces = 0;
+	return ((int)spaces);
+}
+
+static int	fter(t_flags f, char **tab, int z, int neg, int wlen)
+{
+	int spaces;
+
+	spaces = wlen;
+	spaces = neg;
+	spaces = z;
+	
+	spaces = f.width - wlen - neg;
+
+	if((*tab)[0]=='0'&& (*tab)[1] == '\0' &&  f.precision == 0 && f.point == 1)
+	{
+		spaces = f.width - neg;
+
+		free (*tab);
+		return (1 + ft_s(spaces));
+	}
+	spaces = -1;
+	return (spaces);
 }
 
 int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
@@ -39,23 +107,27 @@ int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 	char	*tab;
 
 	tab = ft_strnew(1);
-	spaces = ft_negative(&negative, lst, &tab, &word_len);
-	if (flag.precision > word_len && flag.point == 1)
-		zeros = flag.precision - word_len;
+	spaces = ft_negative(&negative, lst, &tab, &word_len, &counter);
+	
+	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
+		zeros = flag.width - word_len - negative ;
+
+	if (flag.point == 1  && flag.precision > word_len   )
+		zeros = flag.precision - word_len ;
+
 	if (flag.width > (word_len + zeros))
 		spaces = flag.width - word_len - zeros - negative;
+	
+	if ((counter = fter(flag, &tab, zeros, negative, word_len)) > -1)
+		return (counter);
+	
 	if (flag.negative == 1)
-	{
-		counter = ft_n(negative) + ft_z(zeros);
-		counter = counter + ft_w(tab, word_len, flag) + ft_s(spaces);
-	}
+		counter = ftp(negative, zeros, tab, word_len, flag) + ft_s(spaces);
 	else
-	{
-		counter = ft_s(spaces) + ft_n(negative);
-		counter = counter + ft_z(zeros) + ft_w(tab, word_len, flag);
-	}
-	while (spaces > counter++)
+		counter = ftp2(spaces, negative, zeros) + ft_w(tab, word_len, flag);
+	while ((int)spaces > counter++)
 		ft_putchar('0');
 	free(tab);
 	return (counter);
 }
+

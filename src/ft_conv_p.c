@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 17:12:08 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/07 17:25:47 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ char	ft_hexa(int num)
 	return (hexa[num]);
 }
 
+static char *ft_nil()
+{
+	char *ptr;
+
+	ptr = ft_strnew(4);
+	ptr[0]='(';
+	ptr[1]='n';
+	ptr[2]='i';
+	ptr[3]='l';
+	ptr[4]=')';
+	return (ptr);
+}
+
 char	*ft_to_pointer(unsigned long num, int base)
 {
 	unsigned long long	remainder;
@@ -29,10 +42,14 @@ char	*ft_to_pointer(unsigned long num, int base)
 
 	counter = 0;
 	remainder = num;
+	
+	if (num == 0)
+		return (ft_nil());
+
 	while (remainder > 0 && counter++ > -1)
 		remainder = remainder / base;
 	ptr = ft_strnew(counter + 1 + 2);
-	while (num > 0 && counter > -1)
+		while (num > 0 && counter > -1)
 	{
 		remainder = num / base;
 		ptr[2 + counter - 1] = ft_hexa(num % base);

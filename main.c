@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 17:10:28 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 18:34:58 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/02 20:56:46 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 
 int	main()
 {
+/*	
 	int a;
 	int b;
-
+ int e = -2147483648;
 	
+ft_printf("----------------------------------------------------------\n");
+	b = ft_printf("abcd %0d",e );
+	printf("-> %d\n", b);
+	a = printf("abcd %0d",e );
+	printf("-> %d \n", a);
+ft_printf("\n");	
+
 
 ft_printf("----------------------------------------------------------\n");
 	ft_printf("--- CHARS ---\n");
@@ -27,6 +35,17 @@ ft_printf("----------------------------------------------------------\n");
 	a = printf("abcd %5c%3c", 'c', 'd');
 	printf("-> %d \n", a);
 ft_printf("\n");	
+	
+
+
+ft_printf("----------------------------------------------------------\n");
+	ft_printf("--- CHARS ---\n");
+	b = ft_printf("abcd %5c%3c", 'c', 'd');
+	printf("-> %d\n", b);
+	a = printf("abcd %5c%3c", 'c', 'd');
+	printf("-> %d \n", a);
+ft_printf("\n");	
+			   
 	b = ft_printf("abcd %%%5c%3c", 'c', 'd');
 	printf("-> %d\n", b);
 	a = printf("abcd %%%5c%3c", 'c', 'd');
@@ -37,7 +56,6 @@ ft_printf("\n");
 	a = printf("%*c", 5, 'H');
 	printf("-> %d \n", a);
 ft_printf("\n");
-/*
 	b = ft_printf("%*c%c-%c", -10, 'c', 'r', 't');
 	printf("-> %d\n", b);
 	a = printf("%*c%c-%c", -10, 'c', 'r', 't');
@@ -73,23 +91,106 @@ ft_printf("\n");
 	a = printf("%-*c", 12, 'a');
 	printf("-> %d \n", a);
 ft_printf("\n");
+*/
+
+	int		a = -4;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+//	int		f = 42;
+//	int		g = 25;
+//	int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+/*	char	*n = "abcdefghijklmnop";
+	char	*o = "-a";
+	char	*p = "-12";
+	char	*q = "0";
+	char	*r = "%%";
+	char	*s = "-2147483648";
+	char	*t = "0x12345678";
+	char	*u = "-0";
+*/
+
+l=8;
+	
 ft_printf("----------------------------------------------------------\n");
-	ft_printf("--- CAS D'ERREURS ---\n");
-	ft_printf("D: Doit afficher du vide -> '%.0d'\n", 0);
-	printf("O: Doit afficher du vide -> '%.0d'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.d'\n", 0);
-	printf("O: Doit afficher du vide -> '%.d'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.0u'\n", 0);
-	printf("O: Doit afficher du vide -> '%.0u'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.u'\n", 0);
-	printf("O: Doit afficher du vide -> '%.u'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.0x'\n", 0);
-	printf("O: Doit afficher du vide -> '%.0x'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.x'\n", 0);
-	printf("O: Doit afficher du vide -> '%.x'\n", 0);
-	ft_printf("D: Doit afficher du vide -> '%.0s'\n", "");
+	ft_printf("\n");
+	b = ft_printf(" %1.d", l);
+	printf("-> %d\n", b);
+	a = printf(" %1.d", l);
+	printf("-> %d \n", a);
+ft_printf("\n");
+/*
+	while (a < 5)
+	{
+	ft_printf("\n a= ");
+	ft_putnbr(a);
+	ft_printf("ft = %0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	ft_printf("\n");
+
+	a++;
+	}
+	a = -4;
+	printf("\n");
+	while (a < 5)
+	{
+	printf("\n a= ");
+	printf(a);
+
+	printf("pr = %0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	printf("\n");
+	a++;
+	}
+	//		(" --- Return : %d\n", PRINT("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+	//		PRINT(" --- Return : %d\n", PRINT("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d));
+
+
+
+ft_printf("----------------------------------------------------------\n");
+	ft_printf("\n");
+	b = ft_printf("%-*c", 12, 'a');
+	printf("-> %d\n", b);
+	a = printf("%-*c", 12, 'a');
+	printf("-> %d \n", a);
+ft_printf("\n");
+ft_printf("--- CAS D'ERREURS ---\n");
+	b = ft_printf("D: Doit afficher du vide .0d-> '%.0d'\n", 0);
+	printf("-> %d\n", b);
+	a=	   printf("O: Doit afficher du vide .0d-> '%.0d'\n", 0);
+	printf("-> %d\n", a);
+
+	b=ft_printf	("D: Doit afficher du vide .d-> '%.d'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .d-> '%.d'\n", 0);
+	printf("-> %d\n", a);
+	b=ft_printf	("D: Doit afficher du vide .0u-> '%.0u'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .0u-> '%.0u'\n", 0);
+	printf("-> %d\n", a);
+	b=ft_printf	("D: Doit afficher du vide .u-> '%.u'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .u-> '%.u'\n", 0);
+	printf("-> %d\n", a);
+	b=ft_printf	("D: Doit afficher du vide .0x-> '%.0x'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .0x-> '%.0x'\n", 0);
+	printf("-> %d\n", a);
+	b=ft_printf	("D: Doit afficher du vide .x-> '%.x'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .x-> '%.x'\n", 0);
+	printf("-> %d\n", a);
+	b=ft_printf	("D: Doit afficher du vide .X-> '%.X'\n", 0);
+	printf("-> %d\n", b);
+	a=printf	("O: Doit afficher du vide .X-> '%.X'\n", 0);
+	printf("-> %d\n", a);*/
+/*	ft_printf("D: Doit afficher du vide .0s -> '%.0s'\n", "");
 	printf("O: Doit afficher du vide -> '%.0s'\n", "");
-	ft_printf("D: Doit afficher du vide -> '%.s'\n", "");
+	ft_printf("D: Doit afficher du vide .s-> '%.s'\n", "");
 	printf("O: Doit afficher du vide -> '%.s'\n", "");
 	ft_printf("\n");
 	
@@ -105,8 +206,6 @@ ft_printf("\n");
 	a = printf("%-020%");
 	printf("-> %d \n", a);
 ft_printf("\n");
-*/
-/*
 b = ft_printf("a%%a", 25);
 	printf("-> %d\n", b);
 	a = printf("a%%a", 25);
@@ -1260,10 +1359,6 @@ ft_printf("\n");
 	a = printf("%09s", "hi low");
 	printf("-> %d \n", a);
 ft_printf("\n");
-*/
-
-
-
 	b = ft_printf("%-4.4%");
 	printf("-> %d\n", b);
 	a = printf("%-4.4%");
@@ -1312,7 +1407,6 @@ ft_printf("\n");
 ft_printf("\n");
 
 ft_printf("\n");
-
-
+*/
 	return (0);
 }

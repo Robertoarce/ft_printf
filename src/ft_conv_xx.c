@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:26:02 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 14:35:06 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/07 17:11:36 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*ft_to_bhexa(unsigned long num)
 	while (remainder > 0 && counter++ > -1)
 		remainder = remainder / 16;
 	ptr = ft_strnew(counter + 1);
+	ptr[0] = '0';
 	while (num > 0 && counter > -1)
 	{
 		remainder = num / 16;
@@ -54,10 +55,32 @@ int		ft_neg3(va_list lst, int *negative, char **tab, int *word_len)
 	}
 	free(*tab);
 	*tab = ft_to_bhexa(spaces);
+
 	*word_len = 0;
 	if (*tab)
 		*word_len = ft_strlen(*tab);
 	spaces = 0;
+	return (spaces);
+}
+
+static int	fter2(t_flags f, char **tab, int z, int neg, int wlen)
+{
+	int spaces;
+
+	spaces = wlen;
+	spaces = neg;
+	spaces = z;
+	
+	spaces = f.width - wlen - neg;
+
+	if((*tab)[0]=='0'&& (*tab)[1] == '\0' &&  f.precision == 0 && f.point == 1)
+	{
+		spaces = f.width - neg;
+
+		free (*tab);
+		return (1 + ft_s(spaces));
+	}
+	spaces = -1;
 	return (spaces);
 }
 
@@ -70,20 +93,21 @@ int		ft_xx_conv(t_flags flag, va_list lst, int negative, int zeros)
 
 	tab = ft_strnew(1);
 	spaces = ft_neg3(lst, &negative, &tab, &word_len);
-	if (flag.precision > word_len && flag.point == 1)
-		zeros = flag.precision - word_len;
+
+	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
+		zeros = flag.width - word_len - negative ;
+
+	if (flag.point == 1  && flag.precision > word_len   )
+		zeros = flag.precision - word_len ;
+	
 	if (flag.width > (word_len + zeros))
 		spaces = flag.width - word_len - zeros - negative;
-	if (flag.negative == 1)
-	{
-		counter = ft_n(negative) + ft_z(zeros);
-		counter = counter + ft_w(tab, word_len, flag) + ft_s(spaces);
-	}
+		if ((counter = fter2(flag, &tab, zeros, negative, word_len)) > -1)
+		return (counter);
+if (flag.negative == 1)
+		counter = ftp(negative, zeros, tab, word_len, flag) + ft_s(spaces);
 	else
-	{
-		counter = ft_s(spaces) + ft_n(negative);
-		counter = counter + ft_z(zeros) + ft_w(tab, word_len, flag);
-	}
+		counter = ftp2(spaces, negative, zeros) + ft_w(tab, word_len, flag);
 	while ((int)spaces > counter++)
 		ft_putchar('0');
 	free(tab);

@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 17:56:54 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/07 15:00:18 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,27 @@ void	ft_flags_init(t_flags *flag)
 	flag->negative = 0;
 	flag->zero = 0;
 	flag->width = 0;
-	flag->precision = 0;
+	flag->precision = 1;
 	flag->specifier = 'a';
 	flag->star1 = 0;
 	flag->point = 0;
+}
+
+static void	ft_checkneg(t_flags *flag)
+{
+	
+	flag->width = flag->width;
+	if (flag->width < 0)
+	{
+		flag->width = flag->width * -1;
+		flag->negative = 1;
+		flag->zero = 0;
+	}
+	if (flag->precision < 0)
+	{
+		flag->point = 0;
+		flag->precision = flag->precision * -1;
+	}
 }
 
 void	ft_get_flags(t_flags *flag, const char *chain, va_list lst)
@@ -74,10 +91,11 @@ void	ft_part2(t_flags *flag, const char *chain, va_list lst, char **num_word)
 	flag->specifier = chain[ft_spec_pos(chain)];
 	if (ft_isin(chain, '.') >= 0)
 		flag->point = 1;
+	ft_checkneg(&*flag);
 	free(*num_word);
 }
 
-int		ft_get_args(t_flags flag, va_list lst)
+int		ft_print_args(t_flags flag, va_list lst)
 {
 	if (flag.specifier == 'c')
 		return (ft_c_conv(flag, lst));
