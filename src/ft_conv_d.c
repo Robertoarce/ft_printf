@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/07 15:50:38 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/08 09:41:34 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,29 @@ static char		*ft_itoa2(int n)
 	return (number);
 }
 
+static int	fter(t_flags f, char **tab, int z, int neg, int wlen)
+{
+	int spaces;
+
+	spaces = wlen;
+	spaces = neg;
+	spaces = z;
+	spaces = f.width - wlen - neg;
+	if ((*tab)[0] == '0' && (*tab)[1] == '\0'
+			&& f.precision == 0 && f.point == 1)
+	{
+		spaces = f.width - neg;
+		free(*tab);
+		return (1 + ft_s(spaces));
+	}
+	spaces = -1;
+	return (spaces);
+}
+
 int	ft_negative(int *negative, va_list lst, char **tab, int *word_len, int *c)
 {
 	long int spaces;
-	
+
 	*c = 0;
 	spaces = va_arg(lst, int);
 	if (spaces < 0)
@@ -78,27 +97,6 @@ int	ft_negative(int *negative, va_list lst, char **tab, int *word_len, int *c)
 	return ((int)spaces);
 }
 
-static int	fter(t_flags f, char **tab, int z, int neg, int wlen)
-{
-	int spaces;
-
-	spaces = wlen;
-	spaces = neg;
-	spaces = z;
-	
-	spaces = f.width - wlen - neg;
-
-	if((*tab)[0]=='0'&& (*tab)[1] == '\0' &&  f.precision == 0 && f.point == 1)
-	{
-		spaces = f.width - neg;
-
-		free (*tab);
-		return (1 + ft_s(spaces));
-	}
-	spaces = -1;
-	return (spaces);
-}
-
 int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 {
 	int		counter;
@@ -108,19 +106,14 @@ int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 
 	tab = ft_strnew(1);
 	spaces = ft_negative(&negative, lst, &tab, &word_len, &counter);
-	
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
-		zeros = flag.width - word_len - negative ;
-
-	if (flag.point == 1  && flag.precision > word_len   )
-		zeros = flag.precision - word_len ;
-
+		zeros = flag.width - word_len - negative;
+	if (flag.point == 1 && flag.precision > word_len)
+		zeros = flag.precision - word_len;
 	if (flag.width > (word_len + zeros))
 		spaces = flag.width - word_len - zeros - negative;
-	
 	if ((counter = fter(flag, &tab, zeros, negative, word_len)) > -1)
 		return (counter);
-	
 	if (flag.negative == 1)
 		counter = ftp(negative, zeros, tab, word_len, flag) + ft_s(spaces);
 	else
@@ -130,4 +123,3 @@ int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 	free(tab);
 	return (counter);
 }
-

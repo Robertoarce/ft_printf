@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:53:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/01 11:46:12 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/08 19:26:58 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 
 int	ft_w(char *tab, int word_len, t_flags flag)
 {
-	if (tab == NULL && flag.point == 0)
+	char *ptr;
+
+		if (tab == NULL)
 	{
-		ft_putstr("(null)");
-		return (6);
+		ptr = ft_strnewstr("(null)");
+		if (flag.point == 1 && flag.precision > 5)
+		{
+			ft_putstr(ptr);
+			return (6);
+		}
+		if (flag.point == 1 && flag.precision < 6)
+			return (0);
 	}
 	ft_putstrn(tab, word_len);
 	return (word_len);
