@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:29:14 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/08 15:16:22 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/09 11:01:03 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 
 //	printf("|\t%d\n", real);
 //int c =120;
-int d = 18;
+//	int d = 18;
 int a=0;
 //int b=0;
 //	int		i = 8;
@@ -44,18 +44,25 @@ d=	printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d", a
 //a=	ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 //	ft_printf("|a=%d", a);
 a=0;
-d=0;
+//d=0;
 //	ft_printf("\n");
 //	ft_printf("real\n|");
 //d=	printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
  //	printf("|b=%d", d);
 
 
-
+int b=0;
 ft_printf("\n=========  FT   ===========\n", a);
-a=	ft_printf("1)-8s=%-8s|",NULL);
-ft_printf("\n|a=%d\n", a);
 
+ft_printf("\n--------\n", a);
+a=ft_printf("%-8s",NULL);
+ft_printf("\nmine=%d\n", a);
+ft_printf("\n--------\n", a);
+
+ft_printf("\n--------\n", a);
+b=printf("%-8s",NULL);
+ft_printf("\nreal=%d\n", b);
+/*
 a=	ft_printf("1)8s=%8s|",NULL);
 ft_printf("\n|a=%d\n", a);
 a=	ft_printf("1)2s=%2s|",NULL);
@@ -114,7 +121,7 @@ a=	ft_printf("14).8s=%.8s|",NULL);
 ft_printf("\n|a=%d\n", a);
 a=	ft_printf("15).9s=%.9s|",NULL);
 ft_printf("\n|a=%d\n", a);
-
+*/
 
 
 	

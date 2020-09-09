@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:42:06 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/08 15:20:24 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/09 12:14:19 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	ft_s_conv(t_flags flag, va_list lst)
 	counter = 0;
 	tab = va_arg(lst, char*);
 	word_len = 6;
-	if (tab != NULL)
-		word_len = ft_strlen(tab);
+	if (tab == NULL)
+		tab = "(null)";
+	word_len = ft_strlen(tab);
 	if (flag.precision < word_len && flag.point == 1)
 		word_len = flag.precision;
 	spaces = 0;

@@ -6,7 +6,7 @@
 /*   By: rarce <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 17:16:50 by rarce             #+#    #+#             */
-/*   Updated: 2020/08/31 12:43:28 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/09 12:14:06 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			ft_format(va_list lst, const char *chain, int *error)
 	ft_flags_init(&flag);
 	if (ft_strlen(chain) < 1)
 		return(-1);
+	ft_trim(&chain);
 	ft_get_flags(&flag, &chain[0], lst);
 	error_count = -1;
 	error_count = ft_error_check(flag, chain);
