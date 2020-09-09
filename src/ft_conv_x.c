@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:03:31 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/07 16:29:01 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/09 16:38:23 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	ft_hexa1(int num)
 
 char	*ft_to_mhexa(unsigned long num)
 {
-	long long	remainder;
+	long	remainder;
 	char		*ptr;
 	int			counter;
 
@@ -45,9 +45,9 @@ char	*ft_to_mhexa(unsigned long num)
 
 int		ft_neg2(va_list lst, int *negative, char **tab, int *word_len)
 {
-	long long	spaces;
+	long	spaces;
 
-	spaces = va_arg(lst, unsigned long long);
+	spaces = va_arg(lst, unsigned int);
 	if (spaces < 0)
 	{
 		*negative = 1;
@@ -55,6 +55,7 @@ int		ft_neg2(va_list lst, int *negative, char **tab, int *word_len)
 	}
 	free(*tab);
 	*tab = ft_to_mhexa(spaces);
+
 	*word_len = 0;
 	if (*tab)
 		*word_len = ft_strlen(*tab);
@@ -93,8 +94,6 @@ int		ft_x_conv(t_flags flag, va_list lst, int negative, int zeros)
 
 	tab = ft_strnew(1);
 	spaces = ft_neg2(lst, &negative, &tab, &word_len);
-
-
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
 		zeros = flag.width - word_len - negative ;
 

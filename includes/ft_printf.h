@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/09 12:14:41 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/09 16:38:50 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int				ft_format(va_list lst, const char *chain, int *error);
 int				ft_isin(const char *tab, char c);
 int				ft_spec_pos(const char *tab);
 
-char			*ft_strnewstr(char *tab);
-void			ft_trim(const char **tab);
+char			*ft_strnewn(const char *tab, int size);
+char			*ft_trim(const char *tab);
+int				ft_charin(char c);
 
 void			ft_print_repeat(char c, int size);
 int				ft_s(int num);

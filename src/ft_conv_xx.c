@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:26:02 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/07 17:11:36 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/09 16:38:22 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_neg3(va_list lst, int *negative, char **tab, int *word_len)
 {
 	long long	spaces;
 
-	spaces = va_arg(lst, unsigned long long);
+	spaces = va_arg(lst, unsigned int);
 	if (spaces < 0)
 	{
 		*negative = 1;
