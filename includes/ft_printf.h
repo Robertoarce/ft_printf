@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/09 16:38:50 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/10 13:00:21 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void			ft_get_flags(t_flags *flag, const char *chain, va_list lst);
 void			ft_part2(t_flags *flag, const char *chain, va_list lst, char **num_word);
 int				ft_print_args(t_flags flag, va_list lst);
 
-int				ft_format(va_list lst, const char *chain, int *error);
+int				ft_format(va_list lst, const char *chain);
 
 int				ft_isin(const char *tab, char c);
 int				ft_spec_pos(const char *tab);
 
 char			*ft_strnewn(const char *tab, int size);
-char			*ft_trim(const char *tab);
+char			*ft_trim(const char *tab, int *button);
 int				ft_charin(char c);
 
 void			ft_print_repeat(char c, int size);

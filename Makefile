@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/09/08 09:36:39 by titorium         ###   ########.fr        #
+#    Updated: 2020/09/10 13:01:54 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRCS 		+=	./src/ft_conv_s.c
 SRCS 		+=	./src/ft_conv_un.c
 SRCS		+=	./src/ft_conv_x.c
 SRCS		+=	./src/ft_conv_xx.c
-SRCS		+=	./src/ft_error.c
 SRCS		+=	./src/ft_flags.c
 
 OBJS		=	${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 09:36:42 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/09 16:38:57 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/10 12:55:52 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int ft_charin(char c)
 	return (0);
 }
 
-char	*ft_trim(const char *tab)
+char	*ft_trim(const char *tab, int *button)
 {
 	int counter;
 
@@ -56,7 +56,10 @@ char	*ft_trim(const char *tab)
 	while (tab[counter] != '\0')
 	{
 		if(ft_charin(tab[counter]) == 1 )
+		{
+			*button = 1;
 			return(ft_strnewn(tab,counter + 1)) ;
+		}
 		counter++;
 	}
 	return ((char*)tab);
