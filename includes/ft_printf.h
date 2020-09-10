@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 13:00:21 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/10 16:06:43 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				ft_s_conv(t_flags flag, va_list lst);
 
 char			ft_hexa(int num);
 char			*ft_to_pointer(unsigned long num, int base);
-int				ft_p_conv(t_flags flag, va_list lst);
+int				ft_p_conv(t_flags flag, va_list lst, int zeros);
 
 char			ft_hexa1(int num);
 char			*ft_to_mhexa(unsigned long num);

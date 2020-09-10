@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/07 17:25:47 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/10 16:08:09 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ static char *ft_nil()
 {
 	char *ptr;
 
-	ptr = ft_strnew(4);
-	ptr[0]='(';
-	ptr[1]='n';
-	ptr[2]='i';
-	ptr[3]='l';
-	ptr[4]=')';
+	ptr = ft_strnew(3);
+	ptr[0]='0';
+	ptr[1]='x';
+	ptr[2]='0';
 	return (ptr);
 }
 
@@ -61,7 +59,26 @@ char	*ft_to_pointer(unsigned long num, int base)
 	return (ptr);
 }
 
-int		ft_p_conv(t_flags flag, va_list lst)
+static int	fterp(t_flags f, char **tab, int z,  int wlen)
+{
+	int spaces;
+
+	spaces = wlen;
+	spaces = z;
+	spaces = f.width - wlen ;
+	if ((*tab)[0] == '0' && (*tab)[1] == '\0'
+			&& f.precision == 0 && f.point == 1)
+	{
+		spaces = f.width ;
+		free(*tab);
+		return (1 + ft_s(spaces));
+	}
+	spaces = -1;
+	return (spaces);
+}
+
+
+int		ft_p_conv(t_flags flag, va_list lst, int zeros)
 {
 	unsigned long	ptr;
 	char			*tab;
@@ -69,10 +86,12 @@ int		ft_p_conv(t_flags flag, va_list lst)
 	int				word_len;
 	int				spaces;
 
+
 	counter = 0;
 	ptr = va_arg(lst, unsigned long long);
 	tab = ft_to_pointer(ptr, 16);
 	word_len = ft_strlen(tab);
+/*	
 	if (flag.precision < word_len && flag.point == 1)
 		word_len = flag.precision;
 	spaces = 0;
@@ -86,4 +105,22 @@ int		ft_p_conv(t_flags flag, va_list lst)
 	while (spaces > counter++)
 		ft_putchar(' ');
 	return (counter);
+}*/
+	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
+		zeros = flag.width - word_len ;
+	if (flag.point == 1 && flag.precision > word_len)
+		zeros = flag.precision - word_len;
+	if (flag.width > (word_len + zeros))
+		spaces = flag.width - word_len - zeros ;
+	if ((counter = fterp(flag, &tab, zeros,  word_len)) > -1)
+		return (counter);
+	if (flag.negative == 1)
+		counter = ftp(0, zeros, tab, word_len, flag) + ft_s(spaces);
+	else
+		counter = ftp2(spaces, 0, zeros) + ft_w(tab, word_len, flag);
+	while ((int)spaces > counter++)
+		ft_putchar('0');
+	free(tab);
+	return (counter);
 }
+

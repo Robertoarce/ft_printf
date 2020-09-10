@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 11:55:15 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/10 16:06:19 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int		ft_print_args(t_flags flag, va_list lst)
 	if (flag.specifier == 's')
 		return (ft_s_conv(flag, lst));
 	if (flag.specifier == 'p')
-		return (ft_p_conv(flag, lst));
+		return (ft_p_conv(flag, lst, 0));
 	if (flag.specifier == 'd')
 		return (ft_d_conv(flag, lst, 0, 0));
 	if (flag.specifier == 'i')
