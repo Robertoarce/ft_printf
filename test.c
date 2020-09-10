@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:29:14 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 11:15:09 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/10 11:45:36 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,37 +33,15 @@ int main()
 
 	char	*n = "abcdefghijklmnop";
 
-//a =ft_printf(" %u, %x, %X", j, j, j); //T2
-//ft_printf("\nmine=%d\n", a);
-
-//b =printf(" %u, %x, %X", j, j, j); //T2
-//printf("\nreal=%d\n", b);
-
 a =ft_printf("%5%"); //T2
 printf("\nmine=%d\n", a);
 printf("\n----\n");
 
 b = printf("%5%"); //T2
 printf("\nreal=%d\n", b);
-/*
-a =ft_printf(" %s, %c, %d, %u, %x, %X,%s",  n, c, c, j, j, j,"a"); //T2
-printf("\nmine=%d\n", a);
-printf("\n----\n");
 
-b= printf(" %s, %c, %d, %u, %x, %X,%s", n, c, c, j, j, j,"a"); //T2
-printf("\nreal=%d\n", b);
-*/
-/*
 
-ft_printf("\n--------\n");
-a=ft_printf("|hello, %s.|", "gavin");
-ft_printf("\nmine=%d\n", a);
-ft_printf("\n--------\n");
 
-ft_printf("\n--------\n");
-b=printf("|hello, %s.|", "gavin");
-printf("\nmine=%d\n", b);
-printf("\n--------\n");
-*/
+
 return (0);
 }
