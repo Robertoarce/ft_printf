@@ -6,7 +6,7 @@
 /*   By: rarce <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 17:16:50 by rarce             #+#    #+#             */
-/*   Updated: 2020/09/09 16:38:54 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/10 09:59:27 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -38,8 +38,10 @@ int			ft_format(va_list lst, const char *chain, int *error)
 	{
 		*error = -1;
 		ft_putstrn((char*)chain, error_count);
+		free (chaincuted);
 		return (error_count);
 	}
+	free (chaincuted);
 	return (ft_print_args(flag, lst) - 1);
 }
 
