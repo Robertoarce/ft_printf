@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 16:08:09 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/12 11:04:28 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ char	ft_hexa(int num)
 	return (hexa[num]);
 }
 
-static char *ft_nil()
+static char *ft_nil(t_flags f)
 {
 	char *ptr;
-
+	
+	if (f.point == 1)
+	{
+		ptr = ft_strnew(2);
+		ptr[0]='0';
+		ptr[1]='x';
+		return (ptr);
+	}
 	ptr = ft_strnew(3);
 	ptr[0]='0';
 	ptr[1]='x';
@@ -32,7 +39,7 @@ static char *ft_nil()
 	return (ptr);
 }
 
-char	*ft_to_pointer(unsigned long num, int base)
+char	*ft_to_pointer(unsigned long num, int base, t_flags f)
 {
 	unsigned long long	remainder;
 	char				*ptr;
@@ -42,7 +49,7 @@ char	*ft_to_pointer(unsigned long num, int base)
 	remainder = num;
 	
 	if (num == 0)
-		return (ft_nil());
+		return (ft_nil(f));
 
 	while (remainder > 0 && counter++ > -1)
 		remainder = remainder / base;
@@ -89,7 +96,7 @@ int		ft_p_conv(t_flags flag, va_list lst, int zeros)
 
 	counter = 0;
 	ptr = va_arg(lst, unsigned long long);
-	tab = ft_to_pointer(ptr, 16);
+	tab = ft_to_pointer(ptr, 16, flag);
 	word_len = ft_strlen(tab);
 /*	
 	if (flag.precision < word_len && flag.point == 1)
