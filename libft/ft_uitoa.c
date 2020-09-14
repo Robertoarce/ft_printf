@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 10:48:12 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/26 17:18:15 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 19:53:54 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ static size_t	ft_numsized(long num)
 	return (size);
 }
 
-char			*ft_uitoa(unsigned int n)
+char			*ft_uitoa(int *n, int *c)
 {
 	char	*number;
 	size_t	nb_len;
 	size_t	start;
 	long	num;
 
-	num = n;
+	num = *n;
+	*n = 0;
+	*c = 0;
 	nb_len = ft_numsized(num);
 	number = NULL;
 	if ((number = ft_calloc(sizeof(char), nb_len + 1)) == NULL)
