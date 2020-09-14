@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 10:48:12 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 19:53:54 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 19:59:03 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	ft_numsized(long num)
 	return (size);
 }
 
-char			*ft_uitoa(int *n, int *c)
+char			*ft_uitoa(unsigned int *n, int *c)
 {
 	char	*number;
 	size_t	nb_len;

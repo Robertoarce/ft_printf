@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 17:44:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 19:56:09 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:00:20 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_u_conv(t_flags flag, va_list lst)
 	char	*tab;
 
 	spaces = va_arg(lst, int64_t);
-	tab = ft_uitoa(&spaces, &zeros);
+	tab = ft_uitoa((unsigned int *)&spaces, &zeros);
 	word_len = ft_strlen(tab);
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
 		zeros = flag.width - word_len;
