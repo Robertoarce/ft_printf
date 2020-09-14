@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 18:51:28 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 19:00:00 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				ft_isin(const char *tab, char c);
 int				ft_spec_pos(const char *tab);
 char			*ft_strnewn(const char *tab, int size);
 char			*ft_trim(const char *tab, int *button);
-int				ft_initialize(int *a, int *b, int *c);
+char			*ft_initialize(int *a, int *b);
 int				ft_charin(char c);
 void			ft_print_repeat(char c, int size);
 int				ft_s(int num);
