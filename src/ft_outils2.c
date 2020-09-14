@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:53:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/09 15:30:19 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/14 18:28:01 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h> 
@@ -15,26 +15,7 @@
 
 int	ft_w(char *tab, int word_len, t_flags flag)
 {
-
 	(void)flag;
-
-/*	printf("\ntab =>>%s\n",tab);
-	printf("\nw_len =>>%d\n",word_len);
-	printf("\nf.precision =>>%d\n",flag.precision);
-	printf("\nf.point n=>>%d\n",flag.point);
-
-*/
-/*		if (tab == NULL)
-	{
-		ptr = ft_strnewstr("(null)");
-		if (flag.point == 1 && flag.precision > 5)
-		{
-			ft_putstr(ptr);
-			return (6);
-		}
-		if (flag.point == 1 && flag.precision < 6)
-			return (0);
-	}*/
 	ft_putstrn(tab, word_len);
 	return (word_len);
 }

@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 09:36:42 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 12:55:52 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 18:51:35 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,11 @@ char	*ft_trim(const char *tab, int *button)
 		counter++;
 	}
 	return ((char*)tab);
+}
+
+char	*ft_initialize(int *a, int *b)
+{
+	*a = 0;
+	*b = 0;
+	return (ft_strnew(1));
 }

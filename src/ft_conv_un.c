@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 17:44:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/09 15:57:46 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/14 18:33:46 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,8 @@ int	ft_u_conv(t_flags flag, va_list lst)
 
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
 		zeros = flag.width - word_len ;
-
 	if (flag.point == 1  && flag.precision > word_len   )
 		zeros = flag.precision - word_len ;
-
-
 	if (flag.width > (word_len + zeros))
 		spaces = flag.width - word_len - zeros;	
 	if ((counter = fter2(flag, &tab, zeros,  word_len)) > -1)
