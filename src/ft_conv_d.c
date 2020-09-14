@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 18:50:46 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 19:04:48 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char		*ft_itoa2(int n)
 	return (number);
 }
 
-static int	fter(t_flags f, char **tab, int neg, int wlen)
+static int		fter(t_flags f, char **tab, int neg, int wlen)
 {
 	int spaces;
 
@@ -76,14 +76,14 @@ static int	fter(t_flags f, char **tab, int neg, int wlen)
 	return (spaces);
 }
 
-int	ft_negative(int *negative, va_list lst, char **tab, int *word_len)
+int				ft_negative(int *neg, va_list lst, char **tab, int *word_len)
 {
 	long int spaces;
 
 	spaces = va_arg(lst, int);
 	if (spaces < 0)
 	{
-		*negative = 1;
+		*neg = 1;
 		spaces = spaces * -1;
 	}
 	free(*tab);
@@ -95,14 +95,14 @@ int	ft_negative(int *negative, va_list lst, char **tab, int *word_len)
 	return ((int)spaces);
 }
 
-int	ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
+int				ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 {
 	int		counter;
 	int		spaces;
 	int		word_len;
 	char	*tab;
 
-	tab = ft_initialize(&counter, 0);
+	tab = ft_initialize(&counter, &spaces);
 	spaces = ft_negative(&negative, lst, &tab, &word_len);
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
 		zeros = flag.width - word_len - negative;
