@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 17:57:25 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/12 18:01:35 by rarce            ###   ########.fr       */
+/*   Updated: 2020/09/14 16:07:12 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,11 @@ int	ft_pp_conv(t_flags flag, int zeros)
 
 	counter = 0;
 	word_len = 1;
-	if (flag.precision < word_len && flag.point == 1)
-		word_len = flag.precision;
 	spaces = 0;
-	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
+	if (flag.width > word_len && flag.zero == 1)
 		zeros = flag.width - word_len ;
-	if (flag.point == 1 && flag.precision > word_len && flag.zero == 1)
-		zeros = flag.precision - word_len;
-
 	if (flag.width > word_len)
 		spaces = flag.width - word_len - zeros ;
-	if (flag.width > word_len && flag.point ==1 )
-		spaces = flag.width - word_len - zeros - 1 ;
 	if (flag.negative == 1)
 		counter = ft_z(zeros)+ft_putpp()+ ft_s(spaces);
 	else
