@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:03:31 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/15 11:35:56 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 12:05:31 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int	fter2(t_flags f, char **tab, int neg, int wlen)
 	return (spaces);
 }
 
-int			ft_x_conv(t_flags flag, va_list lst, int negative, int zeros)
+int			ft_x_conv(t_flags flag, va_list lst, int neg, int zeros)
 {
 	long long	spaces;
 	char		*tab;
@@ -88,19 +88,19 @@ int			ft_x_conv(t_flags flag, va_list lst, int negative, int zeros)
 	int			counter;
 
 	tab = ft_initialize(&counter, &word_len);
-	spaces = ft_neg2(lst, &negative, &tab, &word_len);
+	spaces = ft_neg2(lst, &neg, &tab, &word_len);
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
-		zeros = flag.width - word_len - negative;
+		zeros = flag.width - word_len - neg;
 	if (flag.point == 1 && flag.precision > word_len)
 		zeros = flag.precision - word_len;
 	if (flag.width > (word_len + zeros))
-		spaces = flag.width - word_len - zeros - negative;
-	if ((counter = fter2(flag, &tab, negative, word_len)) > -1)
+		spaces = flag.width - word_len - zeros - neg;
+	if ((counter = fter2(flag, &tab, neg, word_len)) > -1)
 		return (counter);
 	if (flag.negative == 1)
-		counter = ftp(negative, zeros, tab, word_len, flag) + ft_s(spaces);
+		counter = ftp(neg, zeros) + ft_w(tab, word_len, flag) + ft_s(spaces);
 	else
-		counter = ftp2(spaces, negative, zeros) + ft_w(tab, word_len, flag);
+		counter = ftp2(spaces, neg, zeros) + ft_w(tab, word_len, flag);
 	while ((int)spaces > counter++)
 		ft_putchar('0');
 	free(tab);

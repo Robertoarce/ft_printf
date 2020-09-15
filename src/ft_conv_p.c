@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 19:10:14 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 12:04:01 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int			ft_p_conv(t_flags flag, va_list lst, int zeros)
 	if ((counter = fterp(flag, &tab, zeros, word_len)) > -1)
 		return (counter);
 	if (flag.negative == 1)
-		counter = ftp(0, zeros, tab, word_len, flag) + ft_s(spaces);
+		counter = ftp(0, zeros) + ft_w(tab, word_len, flag) + ft_s(spaces);
 	else
 		counter = ftp2(spaces, 0, zeros) + ft_w(tab, word_len, flag);
 	while ((int)spaces > counter++)

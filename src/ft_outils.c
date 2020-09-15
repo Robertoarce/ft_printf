@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 11:53:21 by titorium          #+#    #+#             */
-/*   Updated: 2020/08/28 16:18:10 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 11:48:09 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		ft_spec_pos(const char *tab)
 	int counter;
 
 	counter = 0;
-
 	while (tab[counter] != '\0' && tab[counter])
 	{
 		if (tab[counter] == 'c'
@@ -40,7 +39,7 @@ int		ft_spec_pos(const char *tab)
 				|| tab[counter] == 'd' || tab[counter] == 'i'
 				|| tab[counter] == 'u' || tab[counter] == 'x'
 				|| tab[counter] == 'X' || tab[counter] == '%')
-			return (counter );
+			return (counter);
 		counter++;
 	}
 	return (-1);

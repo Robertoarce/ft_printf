@@ -6,14 +6,14 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 15:36:47 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/10 16:06:19 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 11:46:35 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-void	ft_flags_init(t_flags *flag)
+void		ft_flags_init(t_flags *flag)
 {
 	flag->negative = 0;
 	flag->zero = 0;
@@ -26,7 +26,6 @@ void	ft_flags_init(t_flags *flag)
 
 static void	ft_checkneg(t_flags *flag)
 {
-	
 	flag->width = flag->width;
 	if (flag->width < 0)
 	{
@@ -41,7 +40,7 @@ static void	ft_checkneg(t_flags *flag)
 	}
 }
 
-void	ft_get_flags(t_flags *flag, const char *chain, va_list lst)
+void		ft_get_flags(t_flags *flag, const char *chain, va_list lst)
 {
 	unsigned int	start;
 	size_t			size;
@@ -70,7 +69,7 @@ void	ft_get_flags(t_flags *flag, const char *chain, va_list lst)
 	ft_part2(&*flag, chain, lst, &number_word);
 }
 
-void	ft_part2(t_flags *flag, const char *chain, va_list lst, char **num_word)
+void		ft_part2(t_flags *f, const char *chain, va_list lst, char **n_w)
 {
 	unsigned int	start;
 	size_t			size;
@@ -81,21 +80,21 @@ void	ft_part2(t_flags *flag, const char *chain, va_list lst, char **num_word)
 	{
 		start = ft_isin(chain, '.') + 1;
 		size = ft_spec_pos(chain) - start;
-		free(*num_word);
-		*num_word = ft_substr(chain, start, size);
+		free(*n_w);
+		*n_w = ft_substr(chain, start, size);
 		if (chain[start] == '*')
-			flag->precision = va_arg(lst, int);
+			f->precision = va_arg(lst, int);
 		else
-			flag->precision = ft_atoi(*num_word);
+			f->precision = ft_atoi(*n_w);
 	}
-	flag->specifier = chain[ft_spec_pos(chain)];
+	f->specifier = chain[ft_spec_pos(chain)];
 	if (ft_isin(chain, '.') >= 0)
-		flag->point = 1;
-	ft_checkneg(&*flag);
-	free(*num_word);
+		f->point = 1;
+	ft_checkneg(&*f);
+	free(*n_w);
 }
 
-int		ft_print_args(t_flags flag, va_list lst)
+int			ft_print_args(t_flags flag, va_list lst)
 {
 	if (flag.specifier == 'c')
 		return (ft_c_conv(flag, lst));

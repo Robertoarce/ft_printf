@@ -6,10 +6,10 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:53:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 18:28:01 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 11:57:38 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h> 
+
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
@@ -42,17 +42,16 @@ int	ft_findc(const char *tab, char c)
 	return (-1);
 }
 
-int	ftp(int neg, int z, char *tab, int w, t_flags f)
+int	ftp(int neg, int z)
 {
 	int counter;
 
 	counter = 0;
 	counter = ft_n(neg) + ft_z(z);
-	counter = counter + ft_w(tab, w, f);
 	return (counter);
 }
 
-int	ftp2(int s, int  neg, int z)
+int	ftp2(int s, int neg, int z)
 {
 	int counter;
 

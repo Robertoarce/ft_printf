@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:57:35 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 19:04:48 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 12:00:25 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int				ft_negative(int *neg, va_list lst, char **tab, int *word_len)
 	return ((int)spaces);
 }
 
-int				ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
+int				ft_d_conv(t_flags flag, va_list lst, int neg, int zero)
 {
 	int		counter;
 	int		spaces;
@@ -103,19 +103,19 @@ int				ft_d_conv(t_flags flag, va_list lst, int negative, int zeros)
 	char	*tab;
 
 	tab = ft_initialize(&counter, &spaces);
-	spaces = ft_negative(&negative, lst, &tab, &word_len);
+	spaces = ft_negative(&neg, lst, &tab, &word_len);
 	if (flag.width > word_len && flag.point == 0 && flag.zero == 1)
-		zeros = flag.width - word_len - negative;
+		zero = flag.width - word_len - neg;
 	if (flag.point == 1 && flag.precision > word_len)
-		zeros = flag.precision - word_len;
-	if (flag.width > (word_len + zeros))
-		spaces = flag.width - word_len - zeros - negative;
-	if ((counter = fter(flag, &tab, negative, word_len)) > -1)
+		zero = flag.precision - word_len;
+	if (flag.width > (word_len + zero))
+		spaces = flag.width - word_len - zero - neg;
+	if ((counter = fter(flag, &tab, neg, word_len)) > -1)
 		return (counter);
 	if (flag.negative == 1)
-		counter = ftp(negative, zeros, tab, word_len, flag) + ft_s(spaces);
+		counter = ftp(neg, zero) + ft_w(tab, word_len, flag) + ft_s(spaces);
 	else
-		counter = ftp2(spaces, negative, zeros) + ft_w(tab, word_len, flag);
+		counter = ftp2(spaces, neg, zero) + ft_w(tab, word_len, flag);
 	while ((int)spaces > counter++)
 		ft_putchar('0');
 	free(tab);

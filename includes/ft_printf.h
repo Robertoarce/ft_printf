@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 13:06:52 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 19:10:49 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 11:59:07 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int				ft_z(int num);
 int				ft_w(char *tab, int word_len, t_flags flag);
 int				ft_n(int sign);
 int				ft_findc(const char *tab, char c);
-int				ftp(int neg, int z, char *tab, int w, t_flags f);
+int				ftp(int neg, int z);
 int				ftp2(int s, int neg, int z);
 int				ft_c_conv(t_flags flag, va_list lst);
 int				ft_pp_conv();
 int				ft_negative(int *negative, va_list lst,
 		char **tab, int *word_len);
-int				ft_d_conv(t_flags flag, va_list lst, int negative, int zeros);
+int				ft_d_conv(t_flags flag, va_list lst, int neg, int zero);
 int				ft_s_conv(t_flags flag, va_list lst);
 char			ft_hexa(int num);
 char			*ft_to_pointer(unsigned long num, int base, t_flags flag, int *c);
