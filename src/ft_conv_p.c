@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:25:29 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/15 12:04:01 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 12:18:18 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*ft_nil(t_flags f)
 	return (ptr);
 }
 
-char		*ft_to_pointer(unsigned long num, int base, t_flags f, int *c)
+char		*ft_to_pointer(unsigned long n, int b, t_flags f, int *c)
 {
 	unsigned long long	remainder;
 	char				*ptr;
@@ -47,17 +47,17 @@ char		*ft_to_pointer(unsigned long num, int base, t_flags f, int *c)
 
 	*c = 0;
 	counter = 0;
-	remainder = num;
-	if (num == 0)
+	remainder = n;
+	if (n == 0)
 		return (ft_nil(f));
 	while (remainder > 0 && counter++ > -1)
-		remainder = remainder / base;
+		remainder = remainder / b;
 	ptr = ft_strnew(counter + 1 + 2);
-	while (num > 0 && counter > -1)
+	while (n > 0 && counter > -1)
 	{
-		remainder = num / base;
-		ptr[2 + counter - 1] = ft_hexa(num % base);
-		num = remainder;
+		remainder = n / b;
+		ptr[2 + counter - 1] = ft_hexa(n % b);
+		n = remainder;
 		counter--;
 	}
 	ptr[0] = '0';

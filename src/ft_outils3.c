@@ -6,39 +6,37 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 09:36:42 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/14 18:51:35 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/15 12:13:26 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-char	*ft_strnewn(const char *tab , int size )
+char		*ft_strnewn(const char *tab, int size)
 {
-	char *ptr;
-	int counter;
-	
+	char	*ptr;
+	int		counter;
+
 	ptr = ft_strnew(ft_strlen(tab));
 	counter = 0;
-
 	while (tab[counter] && tab && size != 0)
 	{
 		ptr[counter] = tab[counter];
 		counter++;
 		size--;
 	}
-	ptr[counter] ='\0';
+	ptr[counter] = '\0';
 	return ((char*)ptr);
 }
 
-int ft_charin(char c)
+int			ft_charin(char c)
 {
-	int counter;
-	char *ptr;
+	int		counter;
+	char	*ptr;
 
 	ptr = "cspdiuxX%";
 	counter = 0;
-	
 	while (ptr[counter] != '\0')
 	{
 		if (c == ptr[counter])
@@ -48,24 +46,24 @@ int ft_charin(char c)
 	return (0);
 }
 
-char	*ft_trim(const char *tab, int *button)
+char		*ft_trim(const char *tab, int *button)
 {
 	int counter;
 
 	counter = 0;
 	while (tab[counter] != '\0')
 	{
-		if(ft_charin(tab[counter]) == 1 )
+		if (ft_charin(tab[counter]) == 1)
 		{
 			*button = 1;
-			return(ft_strnewn(tab,counter + 1)) ;
+			return (ft_strnewn(tab, counter + 1));
 		}
 		counter++;
 	}
 	return ((char*)tab);
 }
 
-char	*ft_initialize(int *a, int *b)
+char		*ft_initialize(int *a, int *b)
 {
 	*a = 0;
 	*b = 0;
